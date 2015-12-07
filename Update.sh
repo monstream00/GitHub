@@ -43,6 +43,11 @@ func_install(){
   	cd Empire/setup && ./install.sh
   	cd ..
   fi
+  if [ ! -d "easy-creds" ]; then
+  	${gitcmd} clone https://github.com/brav0hax/easy-creds.git
+  	cd easy-creds && ./installer.sh
+  	cd ..
+  fi
   echo
   echo '[*] All Repos Cloned!'
 }
@@ -66,6 +71,10 @@ func_update(){
   cd ..
   echo '[*] Updating impacket'
   cd impacket && ${gitcmd} pull
+  cd ..
+  echo
+  echo '[*] Updating easy-creds'
+  cd easy-creds && ${gitcmd} pull
   cd ..
   echo
   echo '[*] All Repos Cloned!'
