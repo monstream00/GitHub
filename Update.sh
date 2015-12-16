@@ -43,10 +43,9 @@ func_install(){
   	cd Empire/setup && ./install.sh
   	cd ..
   fi
-  if [ ! -d "easy-creds" ]; then
-  	${gitcmd} clone https://github.com/brav0hax/easy-creds.git
-  	cd easy-creds && ./installer.sh
-  	cd ..
+  if [ ! -d "creepy" ]; then
+	pip install -U pytz python-qt flickrapi python-instagram yapsy tweepy google-api-python-client python-dateutil configobj dominate
+  	${gitcmd} clone https://github.com/ilektrojohn/creepy.git
   fi
   echo
   echo '[*] All Repos Cloned!'
@@ -72,9 +71,9 @@ func_update(){
   echo '[*] Updating impacket'
   cd impacket && ${gitcmd} pull
   cd ..
-  echo
-  echo '[*] Updating easy-creds'
-  cd easy-creds && ${gitcmd} pull
+  echo '[*] Updating creepy'
+  pip install -U pytz python-qt flickrapi python-instagram yapsy tweepy google-api-python-client python-dateutil configobj dominate
+  cd creepy && ${gitcmd} pull
   cd ..
   echo
   echo '[*] All Repos Cloned!'
