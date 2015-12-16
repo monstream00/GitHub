@@ -72,7 +72,6 @@ func_update(){
   cd impacket && ${gitcmd} pull
   cd ..
   echo '[*] Updating creepy'
-  pip install -U pytz python-qt flickrapi python-instagram yapsy tweepy google-api-python-client python-dateutil configobj dominate
   cd creepy && ${gitcmd} pull
   cd ..
   echo
