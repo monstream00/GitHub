@@ -23,7 +23,7 @@ func_install(){
   if [ ! -d "Veil" ]; then
   	${gitcmd} clone https://github.com/Veil-Framework/Veil
   	cd Veil && ./Install.sh -c
-  	ln -s /root/GitHub/Veil/Veil-Evasion/Veil-Evasion.py /usr/sbin/veil-evasion
+  	ln -s ~/GitHub/Veil/Veil-Evasion/Veil-Evasion.py /usr/sbin/veil-evasion
   	cd ..
   fi
   if [ ! -d "cortana-scripts" ]; then
