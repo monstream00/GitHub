@@ -102,6 +102,10 @@ func_update(){
 # Select Function and Menu Statement
 func_title
 case ${1} in
+  -i)
+    echo
+    func_install
+    ;;
   -c)
     echo
     func_install
@@ -113,7 +117,8 @@ case ${1} in
   *)
     echo
     echo "[Usage]...: ${0} [OPTION]"
-    echo '[Options].: -c = Clone Repos'
+    echo '[Options].: -i = Clone Repos'
+    echo '            -c = Clone Repos
     echo '            -u = Update Repos'
     echo
 esac
