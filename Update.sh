@@ -59,37 +59,37 @@ func_update(){
   func_title
   cd ${veildir}
   echo '[*] Updating Repos'
-  if [ ! -d "Veil" ]; then
+  if [ -d "Veil" ]; then
   	echo '[*] Updating Veil'
   	cd Veil && ${gitcmd} pull && ./Install.sh -u
   	cd ..
   fi
-  if [ ! -d "metasploit-framework" ]; then
+  if [ -d "metasploit-framework" ]; then
   	echo ' [*] Updating Metasploit-Framework'
   	cd metasploit-framework && ${gitcmd} pull
   	cd ..
   fi
-  if [ ! -d "cortana-scripts" ]; then
+  if [ -d "cortana-scripts" ]; then
   	echo ' [*] Updating Cortana Scripts'
   	cd cortana-scripts && ${gitcmd} pull
   	cd ..
   fi
-  if [ ! -d "Empire" ]; then
+  if [ -d "Empire" ]; then
   	echo '[*] Updating Empire'
   	cd Empire && ${gitcmd} pull
   	cd ..
   fi
-  if [ ! -d "chuckle" ]; then
+  if [ -d "chuckle" ]; then
   	echo '[*] Updating Chuckle'
   	cd chuckle && ${gitcmd} pull
   	cd ..
   fi
-  if [ ! -d "impacket" ]; then
+  if [ -d "impacket" ]; then
   	echo '[*] Updating impacket'
   	cd impacket && ${gitcmd} pull
   	cd ..
   fi
-  if [ ! -d "creepy" ]; then
+  if [ -d "creepy" ]; then
   	echo '[*] Updating creepy'
   	cd creepy && ${gitcmd} pull
   	cd ..
