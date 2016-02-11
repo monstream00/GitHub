@@ -118,7 +118,7 @@ case ${1} in
     echo
     echo "[Usage]...: ${0} [OPTION]"
     echo '[Options].: -i = Clone Repos'
-    echo '            -c = Clone Repos
+    echo '            -c = Clone Repos'
     echo '            -u = Update Repos'
     echo
 esac
