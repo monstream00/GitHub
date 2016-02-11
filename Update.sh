@@ -11,7 +11,7 @@ func_title(){
 
   # Print Title
   echo '================================================================'
-  echo '               MonStream00 GIT Updater (Thanks Veil)                 '
+  echo '               MonStream00 GIT Updater (Thanks Veil)            '
   echo '================================================================'
 }
 
@@ -30,8 +30,8 @@ func_install(){
   	${gitcmd} clone https://github.com/rsmudge/cortana-scripts
   fi
   if [ ! -d "metasploit-framework" ]; then
-    ${gitcmd} clone https://github.com/rapid7/metasploit-framework.git
-  if
+  	${gitcmd} clone https://github.com/rapid7/metasploit-framework.git
+  fi
   if [ ! -d "chuckle" ]; then 
   	${gitcmd} clone https://github.com/nccgroup/chuckle
   fi
