@@ -59,27 +59,41 @@ func_update(){
   func_title
   cd ${veildir}
   echo '[*] Updating Repos'
-  echo '[*] Updating Veil'
-  cd Veil && ${gitcmd} pull && ./Install.sh -u
-  cd ..
-  echo ' [*] Updating Metasploit-Framework'
-  cd metasploit-framework && ${gitcmd} pull
-  cd ..
-  echo ' [*] Updating Cortana Scripts'
-  cd cortana-scripts && ${gitcmd} pull
-  cd ..
-  echo '[*] Updating Empire'
-  cd Empire && ${gitcmd} pull
-  cd ..
-  echo '[*] Updating Chuckle'
-  cd chuckle && ${gitcmd} pull
-  cd ..
-  echo '[*] Updating impacket'
-  cd impacket && ${gitcmd} pull
-  cd ..
-  echo '[*] Updating creepy'
-  cd creepy && ${gitcmd} pull
-  cd ..
+  if [ ! -d "Veil" ]; then
+  	echo '[*] Updating Veil'
+  	cd Veil && ${gitcmd} pull && ./Install.sh -u
+  	cd ..
+  fi
+  if [ ! -d "metasploit-framework" ]; then
+  	echo ' [*] Updating Metasploit-Framework'
+  	cd metasploit-framework && ${gitcmd} pull
+  	cd ..
+  fi
+  if [ ! -d "cortana-scripts" ]; then
+  	echo ' [*] Updating Cortana Scripts'
+  	cd cortana-scripts && ${gitcmd} pull
+  	cd ..
+  fi
+  if [ ! -d "Empire" ]; then
+  	echo '[*] Updating Empire'
+  	cd Empire && ${gitcmd} pull
+  	cd ..
+  fi
+  if [ ! -d "chuckle" ]; then
+  	echo '[*] Updating Chuckle'
+  	cd chuckle && ${gitcmd} pull
+  	cd ..
+  fi
+  if [ ! -d "impacket" ]; then
+  	echo '[*] Updating impacket'
+  	cd impacket && ${gitcmd} pull
+  	cd ..
+  fi
+  if [ ! -d "creepy" ]; then
+  	echo '[*] Updating creepy'
+  	cd creepy && ${gitcmd} pull
+  	cd ..
+  fi
   echo
   echo '[*] All Repos Cloned!'
 }
