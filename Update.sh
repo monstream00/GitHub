@@ -29,6 +29,9 @@ func_install(){
   if [ ! -d "cortana-scripts" ]; then
   	${gitcmd} clone https://github.com/rsmudge/cortana-scripts
   fi
+  if [ ! -d "metasploit-framework" ]; then
+    ${gitcmd} clone https://github.com/rapid7/metasploit-framework.git
+  if
   if [ ! -d "chuckle" ]; then 
   	${gitcmd} clone https://github.com/nccgroup/chuckle
   fi
@@ -58,6 +61,9 @@ func_update(){
   echo '[*] Updating Repos'
   echo '[*] Updating Veil'
   cd Veil && ${gitcmd} pull && ./Install.sh -u
+  cd ..
+  echo ' [*] Updating Metasploit-Framework'
+  cd metasploit-framework && ${gitcmd} pull
   cd ..
   echo ' [*] Updating Cortana Scripts'
   cd cortana-scripts && ${gitcmd} pull
