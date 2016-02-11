@@ -39,6 +39,9 @@ func_install(){
   if [ ! -d "chuckle" ]; then 
   	${gitcmd} clone https://github.com/nccgroup/chuckle
   fi
+  if [ ! -d "social-engineer-toolkit" ]; then 
+  	${gitcmd} clone https://github.com/trustedsec/social-engineer-toolkit.git
+  fi
   if [ ! -d "impacket" ]; then
   	${gitcmd} clone https://github.com/CoreSecurity/impacket
   	cd impacket/examples
@@ -76,6 +79,11 @@ func_update(){
   if [ -d "cortana-scripts" ]; then
   	echo ' [*] Updating Cortana Scripts'
   	cd cortana-scripts && ${gitcmd} pull
+  	cd ..
+  fi
+  if [ -d "social-engineer-toolkit" ]; then
+  	echo ' [*] Updating Social-Engineer-Toolkit'
+  	cd social-engineer-toolkit && ${gitcmd} pull
   	cd ..
   fi
   if [ -d "Empire" ]; then
