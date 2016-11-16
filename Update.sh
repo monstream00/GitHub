@@ -36,6 +36,28 @@ func_install(){
   	bundle install
   	cd ..
   fi
+  if [ ! -d "beef" ]; then
+        sudo apt-get install build-essential openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev autoconf libc6-dev libncurses5-dev automake libtool bison subversion
+        bash < <(curl -sk https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+        echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+
+        source ~/.bashrc
+        source $HOME/.rvm/scripts/rvm
+
+        rvm install 2.1.5
+        rvm use 2.1.5 --default
+
+        echo "Downloading BeEF.."
+        ${gitcmd} clone https://github.com/beefproject/beef.git
+        cd beef
+
+        echo "Installing Ruby Gems"
+        ufw disable
+        gem install bundler
+        bundle install
+        ufw enable
+        cd ..
+  fi
   if [ ! -d "chuckle" ]; then 
   	${gitcmd} clone https://github.com/nccgroup/chuckle
   fi
