@@ -42,11 +42,24 @@ func_install(){
   if [ ! -d "social-engineer-toolkit" ]; then 
   	${gitcmd} clone https://github.com/trustedsec/social-engineer-toolkit.git
   fi
+  if [ ! -d "Responder" ]; then 
+  	${gitcmd} clone https://github.com/SpiderLabs/Responder.git
+  fi
+  if [ ! -d "dnscat2" ]; then 
+  	${gitcmd} clone https://github.com/iagox86/dnscat2.git
+  	apt-get install ruby-dev
+  	cd dnscat2/server/
+  	gem install bundler
+  	bundle install
+  fi
   if [ ! -d "impacket" ]; then
   	${gitcmd} clone https://github.com/CoreSecurity/impacket
   	cd impacket/examples
   	ln -s smbrelayx.py /usr/sbin/smbrelayx.py
   	cd ../..
+  fi
+  if [ ! -d "ZackAttack" ]; then
+  	${gitcmd} clone https://github.com/urbanesec/ZackAttack.git
   fi
   if [ ! -d "Empire" ]; then
   	${gitcmd} clone https://github.com/PowerShellEmpire/Empire
@@ -71,6 +84,21 @@ func_update(){
   	cd Veil && ${gitcmd} pull && ./Install.sh -u
   	cd ..
   fi
+  if [ -d "dnscat2" ]; then
+  	echo '[*] Updating dnscat2'
+  	cd dnscat2 && ${gitcmd} pull 
+  	cd ..
+  fi
+  if [ -d "Responder" ]; then
+  	echo '[*] Updating Responder'
+  	cd Responder && ${gitcmd} pull 
+  	cd ..
+  fi
+  if [ -d "beef" ]; then
+  	echo '[*] Updating beef'
+  	cd beef && ${gitcmd} pull 
+  	cd ..
+  fi
   if [ -d "metasploit-framework" ]; then
   	echo ' [*] Updating Metasploit-Framework'
   	cd metasploit-framework && ${gitcmd} pull
@@ -79,6 +107,11 @@ func_update(){
   if [ -d "cortana-scripts" ]; then
   	echo ' [*] Updating Cortana Scripts'
   	cd cortana-scripts && ${gitcmd} pull
+  	cd ..
+  fi
+  if [ -d "ZackAttack" ]; then
+  	echo ' [*] Updating ZackAttack'
+  	cd ZackAttack && ${gitcmd} pull
   	cd ..
   fi
   if [ -d "social-engineer-toolkit" ]; then
