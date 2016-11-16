@@ -39,6 +39,9 @@ func_install(){
   if [ ! -d "chuckle" ]; then 
   	${gitcmd} clone https://github.com/nccgroup/chuckle
   fi
+  if [ ! -d "VPNPivot" ]; then 
+  	${gitcmd} clone https://github.com/0x36/VPNPivot.git
+  fi
   if [ ! -d "social-engineer-toolkit" ]; then 
   	${gitcmd} clone https://github.com/trustedsec/social-engineer-toolkit.git
   fi
@@ -97,6 +100,11 @@ func_update(){
   if [ -d "beef" ]; then
   	echo '[*] Updating beef'
   	cd beef && ${gitcmd} pull 
+  	cd ..
+  fi
+  if [ -d "VPNPivot" ]; then
+  	echo '[*] Updating VPNPivot'
+  	cd VPNPivot && ${gitcmd} pull 
   	cd ..
   fi
   if [ -d "metasploit-framework" ]; then
