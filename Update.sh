@@ -97,6 +97,7 @@ func_install(){
   fi
   if [ ! -d "Empire" ]; then
   	${gitcmd} clone https://github.com/EmpireProject/Empire.git
+  	apt-get install libssl1.1 libssl1.0.2 libssl-dev 
   	cd Empire/setup && ./install.sh
   	cd ..
   fi
