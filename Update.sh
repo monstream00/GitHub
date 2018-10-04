@@ -41,7 +41,13 @@ func_install(){
   if [ ! -d "metasploit-framework" ]; then
   	${gitcmd} clone https://github.com/rapid7/metasploit-framework.git
   	cd metasploit-framework
-  	apt-get install build-essential libreadline-dev libssl-dev libsqlite3-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev openjdk-7-jre git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev libpq-dev libpcap-dev
+  	#apt-get install build-essential libreadline-dev libssl-dev libsqlite3-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev openjdk-7-jre git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev zlib1g-dev libpq-dev libpcap-dev
+  	apt-get -y install autoconf bison build-essential curl git-core libapr1 libaprutil1 libcurl4-openssl-dev libgmp3-dev libpcap-dev libpq-dev libreadline6-dev libpq-dev libsqlite3-dev libssl-dev libsvn1 libtool libxml2 libxml2-dev libxslt-dev libyaml-dev locate ncurses-dev openssl postgresql postgresql-contrib wget xsel zlib1g zlib1g-dev
+  	curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+  	curl -L https://get.rvm.io | bash -s stable
+  	source ~/.rvm/scripts/rvm
+	cd ~/git/metasploit-framework
+	rvm --install $(cat .ruby-version)
   	bundle install
   	cd ..
   fi
