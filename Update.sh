@@ -41,7 +41,7 @@ func_install(){
   if [ ! -d "metasploit-framework" ]; then
   	${gitcmd} clone https://github.com/rapid7/metasploit-framework.git
   	cd metasploit-framework
-  	apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev openjdk-7-jre git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev libpq-dev libpcap-dev
+  	apt-get install build-essential libreadline-dev libssl-dev libsqlite3-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev openjdk-7-jre git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev libpq-dev libpcap-dev
   	bundle install
   	cd ..
   fi
