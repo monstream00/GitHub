@@ -46,7 +46,7 @@ func_install(){
   	curl -sSL https://rvm.io/mpapis.asc | gpg --import -
   	curl -L https://get.rvm.io | bash -s stable
   	source ~/.rvm/scripts/rvm
-	cd ~/git/metasploit-framework
+	cd ~/GitHub/metasploit-framework
 	rvm --install $(cat .ruby-version)
   	bundle install
   	cd ..
