@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#docker pull empireproject/empire
+#docker images -a
+#docker run -ti empireproject/empire
+#docker run -ti --entrypoint bash empireproject/empire 
+#Create Persistent Storage
+#docker create -v /opt/Empire --name data empireproject/empire
+#docker run -ti --volumes-from data -p 10.0.0.207:80:80 empireproject/empire
+#https://blog.obscuritylabs.com/docker-command-controll-c2/
+
 # Global Variables
 gitcmd=$(which git)
 veildir=$(dirname ${0})
@@ -32,7 +41,7 @@ func_install(){
   if [ ! -d "metasploit-framework" ]; then
   	${gitcmd} clone https://github.com/rapid7/metasploit-framework.git
   	cd metasploit-framework
-  	apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev openjdk-7-jre git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev
+  	apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev openjdk-7-jre git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev libpq-dev libpcap-dev
   	bundle install
   	cd ..
   fi
@@ -87,7 +96,7 @@ func_install(){
   	${gitcmd} clone https://github.com/urbanesec/ZackAttack.git
   fi
   if [ ! -d "Empire" ]; then
-  	${gitcmd} clone https://github.com/PowerShellEmpire/Empire
+  	${gitcmd} clone https://github.com/EmpireProject/Empire.git
   	cd Empire/setup && ./install.sh
   	cd ..
   fi
