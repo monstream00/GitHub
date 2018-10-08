@@ -4,7 +4,7 @@
 #docker images -a
 #docker run -ti empireproject/empire
 #docker run -ti --entrypoint bash empireproject/empire 
-#Create Persistent Storage
+#Create Persistent Storagee
 #docker create -v /opt/Empire --name data empireproject/empire
 #docker run -ti --volumes-from data -p 10.0.0.207:80:80 empireproject/empire
 #https://blog.obscuritylabs.com/docker-command-controll-c2/
